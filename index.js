@@ -24,15 +24,22 @@ const app = Vue.createApp({
     }
   },
   methods: {
+    // Adds an empty task (Needs fixing)
     addTask(task) {
     this.tasks.push(task)
     },
+
+    // Only deletes tasks starting from the last one in the index
     deleteTask(task) {
       this.tasks.splice(this.tasks.indexOf(task), 1);
     },
-    sortTask(task) {
-      this.task.slice().sort(a, b);
-          return a.priority - b.priority
+
+    // Doesn't do anything (Needs fixing)
+    sortTask(priority) {
+      this.tasks.slice(priority).sort(a, b); {
+        return (a.priority > b.priority) ? 1: -1;
+      }
+          
       },
       
     onSubmit() {
@@ -49,8 +56,9 @@ const app = Vue.createApp({
       this.priority = null
       this.task = ''
   }
-  },
-  computed: {
+  }
+
+  /* computed: {
     sortedTasks() {
       let tempTasks = this.tasks
       tempTasks = tempTasks.sort((a, b) => a.priority-b.priority, {
@@ -60,6 +68,6 @@ const app = Vue.createApp({
       return a.priority - b.priority
     }
   })
-  }
-}
+  } 
+} */
   })
