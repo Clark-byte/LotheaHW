@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Clark Joseph's Lothea HW</title>
+
+    <link rel="stylesheet" href="./index.css" />
+
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+       <h1>Tasks</h1>
+       <p>Here is a list of tasks:</p>
+       <p>You can add or delete a task and it's binded priority,</p>
+       <p>You can also sort the tasks by priority.</p>
+       
+            <li v-for="task in tasks" :key="task.id">{{ task.priority}} {{ task.task }} </li>
+            <br>
+
+            <button class="button" v-on:click="addTask">Add new Task</button>
+            <button class="button" v-on:click="deleteTask">Delete Recently Added Task</button>
+            <button class="button" v-on:click="sortTask">Sort by Priority</button>
+
+            <form class="task-changer" @submit.prevent="onSubmit">
+              <h3> Alter a specific task: </h3>
+              <label for="priority"> Priority: </label>
+              <select id="priority" v-model.number="priority">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              </select>
+              
+              <label for="task"> Task: </label>
+              <textarea id="task" v-model="task"></textarea>
+              
+              <br>
+               <input class="button" type="submit" value="Delete Custom Task">
+               <input class="button" type="submit" value="Add Custom Task">
+
+              </form>
+        
+      <!--  <task-changer @task-changed="addTask"></task-changer> -->
+       <!-- <task-display></task-display> -->
+        
+        <!-- <button class="button" v-on:click="sorttTask">From highest priority</button>
+        <button class="button" v-on:click="sortttTask">From lowest priority</button> -->
+    </div>
+    <script src="./index.js"></script>   
+
+    <script src="./components/taskChanger.js"></script>
+    <script src="./components/taskDisplay.js"></script> 
+    <script src="./components/taskList.js"></script>
+
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>   
+  </body>
+</html>
